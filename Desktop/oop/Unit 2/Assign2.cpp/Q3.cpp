@@ -6,12 +6,9 @@ int main(){
     float a;
     cout<<"Enter value of a"<<endl;
     cin>>a;
-
+    
     cout<<"Enter floating-point number is: "<<a<<endl;
     cout<<"Interger value is: "<<static_cast<int>(a)<<endl;
     cout<<"Long integer value is: "<<static_cast<long>(a);
-
-
-
     return 0;
 }
