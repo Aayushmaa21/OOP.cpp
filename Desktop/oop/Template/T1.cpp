@@ -8,7 +8,7 @@ private:
     T x, y, z;
 
 public:
-    // Constructor
+
     A(T a, T b, T c)
     {
         x = a;
