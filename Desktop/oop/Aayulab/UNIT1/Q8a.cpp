@@ -15,9 +15,5 @@ int main(){
     else{
         cout <<"Number is zero";
     }
-
-
-
-
     return 0;
 }
