@@ -11,9 +11,14 @@ public:
         count = c;
     }
 
-    // Overloading pre-increment operator
+    // Pre-increment operator
     void operator++() {
         ++count;
+    }
+
+    // Post-increment operator
+    void operator++(int) { //to be noted
+        count++;
     }
 
     // Display count
@@ -25,12 +30,17 @@ public:
 int main() {
     Counter c(5);
 
-    cout << "Before increment: ";
+    cout << "Initial count: ";
     c.display();
 
-    ++c;   // Calls operator++()
+    // Pre-increment
+    ++c;
+    cout << "After pre-increment (++obj): ";
+    c.display();
 
-    cout << "After increment: ";
+    // Post-increment
+    c++;
+    cout << "After post-increment (obj++): ";
     c.display();
 
     return 0;
