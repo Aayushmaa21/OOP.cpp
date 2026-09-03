@@ -1,35 +1,48 @@
 #include <iostream>
 using namespace std;
 
-int main()
+template <class T>
+class Array
 {
-    int arr[5];
-    int index;
+protected:
+    T arr[5];
 
-    cout << "Enter 5 elements: ";
-
-    for (int i = 0; i < 5; i++)
+public:
+    void input()
     {
-        cin >> arr[i];
-    }
+        cout << "Enter 5 elements: ";
 
-    cout << "Enter index to access: ";
-    cin >> index;
-
-    try
-    {
-        if (index < 0 || index >= 5)
+        for (int i = 0; i < 5; i++)
         {
-            throw index;
+            cin >> arr[i];
+        }
+    }
+};
+
+template <class T>
+class SumArray : public Array<T>
+{
+public:
+    T sum()
+    {
+        T total = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            total += this->arr[i]; //because array belongs to base class
         }
 
-        cout << "Element at index " << index << " = " << arr[index] << endl;
+        return total;
     }
+};
 
-    catch (int x)
-    {
-        cout << "Error: Array index " << x << " is out of bounds!" << endl;
-    }
+int main()
+{
+    SumArray<int> a;
+
+    a.input();
+
+    cout << "Sum = " << a.sum() << endl;
 
     return 0;
 }

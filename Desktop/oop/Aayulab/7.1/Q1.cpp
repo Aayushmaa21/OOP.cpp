@@ -1,21 +1,22 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int a,b;
-    cout<<"Enter value of a and b";
-    cin>> a >> b;
-
-    try{
-    if(b == 0){
-        throw b;
-    }
-        cout<<"Division is: "<< a / b <<endl;
+template <class T>
+T findMax(T a, T b)
+{
+    if (a > b)
+        return a;
+    else
+        return b;
 }
-    catch(int x){
-        cout<<"Cannot divide by zero";
-    }
 
+int main()
+{
+    cout << "Maximum integer: " << findMax(10, 20) << endl;
+
+    cout << "Maximum float: " << findMax(10.5f, 7.2f) << endl;
+
+    cout << "Maximum character: " << findMax('A', 'Z') << endl;
 
     return 0;
 }

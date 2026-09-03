@@ -1,26 +1,40 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int a,b;
-    cout<<"Enter value of a and b";
-    cin>> a >> b;
+template <class T>
+class Calculator
+{
+    T a, b;
 
-    try{
-    if(b == 0){
-        throw b;
+public:
+    Calculator(T x, T y)
+    {
+        a = x;
+        b = y;
     }
-    if(b < 0){
-        throw 3.14;
+
+    void calculate()
+    {
+        cout << "Addition = " << a + b << endl;
+        cout << "Subtraction = " << a - b << endl;
+        cout << "Multiplication = " << a * b << endl;
+
+        if (b != 0)
+            cout << "Division = " << a / b << endl;
+        else
+            cout << "Cannot divide by zero" << endl;
     }
-        cout<<"Division is: "<< a / b <<endl;
-}
-    catch(int x){
-        cout<<"Cannot divide by zero";
-    }
-    catch(...){
-        cout<<"Exception occurs";
-    }
+};
+
+int main()
+{
+    cout << "Integer Calculator:" << endl;
+    Calculator<int> c1(10, 5);
+    c1.calculate();
+
+    cout << "\nFloat Calculator:" << endl;
+    Calculator<float> c2(10.5f, 2.5f);
+    c2.calculate();
 
     return 0;
 }

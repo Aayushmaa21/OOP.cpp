@@ -1,34 +1,24 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-int main(){
-    int a;
-    cout<<"Enter value of a";
-    cin>>a;
-    try{
-        if(a == 0){
-            throw 0;
-        }
+template <class T1, class T2>
+void display(T1 a, T2 b)
+{
+    cout << "First value: " << a << endl;
+    cout << "Second value: " << b << endl;
+}
 
-        if(a < 0){
-            throw "Negative";
-        }
+int main()
+{
+    display(10, 20.5f);        // int and float
 
-        if (a > 0){
-        throw 3.14f;  
-        }
-    }
+    cout << endl;
 
-    catch(int x){
-        cout<<"Integer is Zero";
-    }
+    display(15.5f, "Hello");    // float and string
 
-    catch(const char* msg ){
-        cout<<msg;
-    }
-    catch(float x){
-        cout<<"Integer is positive";
-    }
+    cout << endl;
+
+    display('A', 100);          // char and int
 
     return 0;
 }
