@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -8,21 +7,28 @@ private:
     int acc_no;
     string name;
     float balance;
-
-    // Static data member
     static int totalAccounts;
 
 public:
 
-    // Constructor
+    // Parameterized constructor
     Account(int no, string n, float b)
     {
         this->acc_no = no;
         this->name = n;
         this->balance = b;
-
         totalAccounts++;
     }
+
+    // Copy constructor
+    Account(const Account &a)
+    {
+        acc_no = a.acc_no;
+        name = a.name;
+        balance = a.balance;
+        totalAccounts++;
+    }
+
     // Static function
     static void showTotal()
     {
@@ -30,16 +36,18 @@ public:
     }
 
     // Friend function
-    friend void display(Account a);
-    friend Account addbalance(Account &a);
+    friend void display(const Account &a); //refrence to avoid copies
+
+    // Friend function for adding balance
+    friend Account& addBalance(Account &a);
 };
 
-// Initialize static data member
+// Initialize static member
 int Account::totalAccounts = 0;
 
 
-// Friend function
-void display(Account a)
+// Display account details
+void display(const Account &a)
 {
     cout << "Account No: " << a.acc_no << endl;
     cout << "Name: " << a.name << endl;
@@ -47,8 +55,8 @@ void display(Account a)
 }
 
 
-// Function that passes and returns an object
-Account addbalance(Account &a)
+// Pass and return object by ref
+Account& addBalance(Account &a)
 {
     a.balance = a.balance + 1000;
     return a;
@@ -63,22 +71,24 @@ int main()
     cout << "Account 1:" << endl;
     display(a1);
 
+
     // Copy initialization
     Account a2 = a1;
 
     cout << "\nAccount 2 (Copy):" << endl;
     display(a2);
 
-    // Function passing and returning object
-    Account a3 = addbalance(a1);
+
+    // Pass and return object by ref
+    Account a3 = addBalance(a1);
 
     cout << "\nAccount 3:" << endl;
     display(a3);
 
-    // Display total accounts
+
+    // Total accounts
     cout << endl;
     Account::showTotal();
 
     return 0;
 }
-
