@@ -56,7 +56,7 @@ public:
     // Display function
     void display()
     {
-        cout << "\nAccount Holder: " << name << endl;
+        cout << "Account Holder: " << name << endl;
         cout << "Account Number: " << accountNumber << endl;
         cout << "Balance: " << balance << endl;
     }
@@ -72,24 +72,24 @@ int main()
 {
     // Object using default constructor
     Bank b1;
-    cout << "Account 1:" << endl;
+    cout << "Account 1:" <<endl;
     b1.display();
 
     // Object using parameterized constructor
     Bank b2("Aayushma", 1001, 50000);
-    cout << "\nAccount 2:" << endl;
+    cout << "\nAccount 2:" <<endl;
     b2.display();
 
     // Deposit and withdraw
     b2.deposit(10000);
     b2.withdraw(5000);
 
-    cout << "\nAccount 2 after transactions:" << endl;
+    cout << "\nAccount 2 after transactions:" <<endl;
     b2.display();
 
     // Object using copy constructor
     Bank b3(b2);
-    cout << "Account 3 (Copied from Account 2):" << endl;
+    cout << "Account 3 (Copied from Account 2):" <<endl;
     b3.display();
 
     return 0;
