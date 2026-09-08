@@ -23,7 +23,7 @@ public:
 
     void details(){
         cout<<"Account number: "<<acc_no<<endl;
-        cout<<"Account holder name: "<<acc_balance<<endl;
+        cout<<"Account holder name: "<<acc_holder_name<<endl;
         cout<<"Current balance: "<<acc_balance<<endl;
     }
     int getAccountNo()
@@ -48,7 +48,7 @@ void Bank ::withdraw(){
     cin>>wd;
     if(wd<acc_balance){
     acc_balance = acc_balance - wd;
-    cout<<"Balance Withdrawn Sucessfully";}
+    cout<<"Balance Withdrawn Sucessfully"<<endl;}
     else{
         cout<<"Insufficient Balance";
     }
