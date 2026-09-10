@@ -46,7 +46,7 @@ public:
     // > operator
     bool operator>(Vector v)
     {
-        return (a*a + b*b) > (v.a*v.a + v.b*v.b);
+        return sqrt(a*a + b*b) > sqrt(v.a*v.a + v.b*v.b);
     }
 };
 
