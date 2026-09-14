@@ -5,10 +5,8 @@ template <class T>
 class Array{
     public:
     T arr[5];
-    
-arr ={20,50,87,12,60};
 
-
+};
 template<class T>
 void sortArray(T arr[]) 
 { 
@@ -26,6 +24,27 @@ void sortArray(T arr[])
     } 
 }
 
+template <class T>
+void display(T arr[], string name)
+{
+    cout << name << ": ";
 
+    for (int i = 0; i < 5; i++)
+        cout << arr[i] << " ";
 
-};
+    cout << endl;
+}
+
+int main()
+{
+    Array<int> a = {{20, 50, 87, 12, 60}};
+    Array<float> b = {{20.5, 50.2, 87.7, 12.4, 60.1}};
+
+    sortArray(a.arr);
+    sortArray(b.arr);
+
+    display(a.arr, "Integer Array");
+    display(b.arr, "Float Array");
+
+    return 0;
+}
